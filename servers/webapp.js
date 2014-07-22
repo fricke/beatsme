@@ -9,7 +9,7 @@ var MongoStore = require('connect-mongo')(session);
 var config = require('../lib/services/config');
 var responder = require('../lib/responder');
 
-module.exports = function(app, router) {
+module.exports = function(app, router, mongoose) {
   // STATIC Routes
   require('../lib/routes/static')(app);
   app.set('views', './dist/html');
@@ -33,7 +33,6 @@ module.exports = function(app, router) {
   app.use(passport.session());
 
   app.get('/', function(req, res){
-
     var apiConfig = config.get('beatsmusic:apiConfig');
     responder(res, {
       template: 'index',
@@ -44,6 +43,10 @@ module.exports = function(app, router) {
         clientId: apiConfig.clientID
       }
     });
+  });
+
+  app.get('/play', function(req, res){
+    res.json({});
   });
 
 }

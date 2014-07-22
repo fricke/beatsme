@@ -1,16 +1,23 @@
 var should = require('should');
-var config = require('../lib/services/config');
-var app = require('../server');
-var mongoose = require('mongoose');
-var User = require('../lib/models/user');
-var Game = require('../lib/models/game');
+var config = require('../../lib/services/config');
+var User = require('../../lib/models/user');
+var Game = require('../../lib/models/game');
 var request = require('supertest');
 
 var userId = "53c4eea2296c7000005459f7";
 
 var user, game;
 
-module.exports = function(isOauth, isSession, whatClient) {
+module.exports = function(mongoose, isOauth, isSession, whatClient) {
+
+  var cookie;
+  var app = require('../../server')(mongoose, isOauth, isSession);
+
+  var errorResponseExpect = 'application/json; charset=utf-8';
+  if(isSession) {
+    errorResponseExpect = 'text/html; charset=utf-8';
+  }
+
   describe('Games (oauth: ' + isOauth + ', session: ' + isSession + ', client: ' + whatClient + '', function() {
     before(function(done) {
       User.find({ _id: userId })
@@ -25,32 +32,27 @@ module.exports = function(isOauth, isSession, whatClient) {
     });
 
     after(function(done){
-      Game.remove().exec().then(function(){ done() });
+        app.close(function(){
+          done();
+        });
+    });
+
+    describe('/oauth/beatsme/callback', function() {
+      it('will log you in', function(done) {
+        
+      });
     });
 
     describe('POST /games', function(){
-      it('not allow creation of game for non user', function(done){
-        done();
-      });
+      it('return unauthorized for non-user');
       it('create new game for user', function(done){
-        done();
+
       });
     });
 
     describe('GET /games', function(){
-      it('return unauthorized for non-user', function(done){
-        request(app)
-          .get('/games')
-          .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(401)
-          .end(function(err, res){
-            if(err) throw err;
-            done();
-          });
-      });
-      it('get all the games for the user', function(done){
-        done();
-      });
+      it('return unauthorized for non-user');
+      it('get all the games for the user');
     });
 
     describe('GET /games/:id', function(){});

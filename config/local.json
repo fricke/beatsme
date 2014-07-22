@@ -1,5 +1,12 @@
 {
-  "port": "8080",
+  "webapp": {
+    "port": 8000,
+    "domain": "www.beatsme.com"
+  },
+  "api": {
+    "port": 8001,
+    "domain": "api.beatsme.com"
+  },
   "session": {
     "secret": "murakami"
   },

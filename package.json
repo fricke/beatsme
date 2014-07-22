@@ -5,7 +5,7 @@
     "start": "gulp develop",
     "debug": "gulp develop --debug",
     "debugBrk": "gulp develop --debug-brk",
-    "test": "mocha -b -R spec -g 'oauth|session'"
+    "test": "mocha -b -R spec ./test/session.js"
   },
   "main": "app.js",
   "repository": {
@@ -31,6 +31,7 @@
     "passport-beatsmusic": "^1.0.2",
     "passport-http": "^0.2.2",
     "passport-http-bearer": "^1.0.1",
+    "q": "^1.0.1",
     "request": "^2.37.0",
     "util": "^0.10.3",
     "winston": "^0.7.3",
