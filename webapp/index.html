@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BeatsMe</title>
+        <meta name="description"
+          content="BeatsMe app lets you play a game where you can guess the track provided by BeatsMusic">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- build:css -->
+        <!-- endbuild -->
+    </head>
+
+    <body ng-app="beatsme" fullbleed layout vertical>
+        <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
+        <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
+        <link rel="import" href="../../bower_components/beatsme-game/beatsme-game.html">
+        <link rel="import" href="../../bower_components/beatsme-player/beatsme-player.html">
+
+          <div class="top">
+            <img id="logo" src="../images/beatsmusic_logo.png" width="75" height="75"/>
+          </div>
+
+          <div ng-view></div>
+
+        <!-- build:js -->
+        <!-- endbuild -->
+        <script type="text/javascript">
+           angular.element(document).ready(function() {
+             window.user = <%- JSON.stringify(data.user) %>;
+             if(Object.keys(user).length !== 0) {
+               window.game = <%- JSON.stringify(data.game) %>;
+               window.players = <%- JSON.stringify(data.players) %>;
+               var beatsMusicUser = user.provider.beatsmusic;
+               localStorage.setItem('clientId', <%- JSON.stringify(data.clientId) %>);
+               localStorage.setItem('accessToken', beatsMusicUser.access_token);
+               localStorage.setItem('userId', beatsMusicUser.id);
+             }
+             angular.bootstrap(document, ['beatsme']);
+           });
+    		</script>
+      </body>
+</html>

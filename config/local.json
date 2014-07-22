@@ -1,0 +1,29 @@
+{
+  "port": "8080",
+  "session": {
+    "secret": "murakami"
+  },
+  "mongodb": {
+    "host": {
+        "url": "localhost",
+        "port": "27017"
+    },
+    "database": "beatsme"
+  },
+  "security": {
+        "tokenLife" : 3600
+  },
+  "beatsmusic": {
+    "apiConfig": {
+      "clientID": "256f9qus6jcb43b3crenap9a",
+      "clientSecret": "BZwTRqdfj7rwKnzNm2QsM4kB",
+      "callbackURL": "http://www.beatsme.com:8080/auth/beatsmusic/callback"
+    },
+    "urls": {
+      "base": "https://partner.api.beatsmusic.com/v1/api",
+      "users": "/users",
+      "tracks": "/tracks",
+      "justForYouEndPoint": "/recs/just_for_you"
+    }
+  }
+}

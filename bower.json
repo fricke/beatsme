@@ -1,0 +1,24 @@
+{
+  "name": "beatsme",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.4",
+    "jquery": "~2.1.1",
+    "angular": "~1.2.20",
+    "angular-route": "~1.2.20",
+    "angular-bootstrap": "~0.11.0",
+    "bootstrap": "~3.2.0",
+    "backbone": "~1.1.2",
+    "marionette": "~2.0.2",
+    "angular-cookies": "~1.2.20",
+    "core-ajax": "Polymer/core-ajax#~0.3.4",
+    "core-header-panel": "Polymer/core-header-panel#~0.3.4",
+    "paper-slider": "Polymer/paper-slider#~0.3.4",
+    "core-toolbar": "Polymer/core-toolbar#~0.3.4",
+    "core-drawer-panel": "Polymer/core-drawer-panel#~0.3.4",
+    "core-animated-pages": "Polymer/core-animated-pages#~0.3.4",
+    "core-style": "Polymer/core-style#~0.3.4",
+    "core-signals": "Polymer/core-signals#~0.3.4"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,116 @@
+
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: #f1f1f1;
+}
+
+.top {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50%;
+  background: #000000;
+}
+
+.top h1 {
+  font-family: 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  top: 30px;
+  display:block;
+  color: #FFF;
+}
+
+.top #logo {
+  position: absolute;
+  top: 20px;
+  left:10px;
+}
+
+#bam_container {
+  height:0px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a.opener {
+  display:block;
+  left: 45%;
+  top: -60px;
+  width:120px;
+  position:relative;
+}
+
+a.opener > * {
+  display: block;
+}
+
+a.opener h2 {
+  text-align: center;
+  margin-top:5px;
+
+}
+
+.beatsmusic-img-container {
+  width: 120px;
+  height: 120px;
+  margin: 0;
+  vertical-align: top;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+
+.beatsmusic-img {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: rgba(0,0,0,.1) 0 1px 1px 1px;
+  -moz-box-shadow: rgba(0,0,0,.1) 0 1px 1px 1px;
+  -ms-box-shadow: rgba(0,0,0,.1) 0 1px 1px 1px;
+  -o-box-shadow: rgba(0,0,0,.1) 0 1px 1px 1px;
+  box-shadow: rgba(0,0,0,.1) 0 1px 1px 1px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+beatsme-game {
+  position:relative;
+  top: 0px;
+  height: 50%;
+}
+
+beatsme-game::shadow core-animated-pages {
+  position:absolute;
+  top: -270px;
+  height: 50%;
+}
+
+core-header-panel {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+core-toolbar {
+  background: #03a9f4;
+  color: white;
+  height:90px;
+}

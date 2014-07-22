@@ -1,0 +1,21 @@
+<!--beatsme-providers-panel>
+  providers="{{ providers }}"
+</beatsme-providers-panel-->
+
+<!--beatsme-score-board
+  players="{{ players }}">
+</beatsme-score-board-->
+
+<!-- core-ajax
+  auto url="/game/points"
+  handleAs="json"
+  method="GET"
+  on-core-response="{{ handleGetPoints }}">
+</core-ajax -->
+
+<beatsme-game
+  userId="{{ session.user.provider.beatsmusic.id }}"
+  players="{{ session.players }}"
+  start="{{ session.game.start }}"
+  length="{{ session.game.length }}"
+</beatsme-game>
