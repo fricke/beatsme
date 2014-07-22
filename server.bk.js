@@ -57,11 +57,10 @@ if(process.env.BEATSME_API_PROCESS == "on") {
   }));
   app.use(passport.session());
 
-debugger;
   app.get('/', function(req, res){
 
     var apiConfig = config.get('beatsmusic:apiConfig');
-    responder(req, res, {
+    responder(res, {
       template: 'index',
       data: {
         game: req.session.game || {},

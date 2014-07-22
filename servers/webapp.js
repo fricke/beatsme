@@ -35,7 +35,7 @@ module.exports = function(app, router) {
   app.get('/', function(req, res){
 
     var apiConfig = config.get('beatsmusic:apiConfig');
-    responder(req, res, {
+    responder(res, {
       template: 'index',
       data: {
         game: req.session.game || {},

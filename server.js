@@ -8,6 +8,7 @@ var logger = new (winston.Logger)({ transports: [ new (winston.transports.Consol
 var config = require('./lib/services/config');
 var mongoose = require('mongoose');
 var mongoUrl = config.getMongoUrl();
+var responder = require('./lib/responder');
 
 var app = express();
 var router = express.Router();
@@ -27,7 +28,6 @@ if(process.env.BEATSME_API_PROCESS == "on") {
   require('./servers/webapp')(app, router);
 }
 
-//Logs errors as json and colors the out to console
 app.use(expressWinston.errorLogger({
   transports: [
     new winston.transports.Console({
@@ -44,6 +44,12 @@ require('./lib/routes/auth')(app);
 // REST Routes
 require('./lib/routes/data')(router);
 
+app.use(function(err, req, res, next) {
+  responder(res, { error: err });
+});
+
 http.createServer(app).listen(app.get('port'), 'www.beatsme.com', function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+module.exports = app;
