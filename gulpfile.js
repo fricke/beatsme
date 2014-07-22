@@ -1,7 +1,6 @@
 'use strict';
 
 var version = require('./package.json').version;
-var mainBowerFiles = require('main-bower-files');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var util = require('gulp-util');
@@ -133,7 +132,7 @@ gulp.task('develop', function () {
   plugins.nodemon({
       script: 'server.js',
       ext: 'js',
-      watch: ['server.js', 'lib/', 'config/'],
+      watch: ['server.js', 'servers/', 'lib/', 'config/'],
       delay: 100,
       nodeArgs: debugOpt ? [debugOpt] : null
     })

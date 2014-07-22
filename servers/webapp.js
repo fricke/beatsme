@@ -9,7 +9,7 @@ var MongoStore = require('connect-mongo')(session);
 var config = require('../lib/services/config');
 var responder = require('../lib/responder');
 
-module.exports = function(app) {
+module.exports = function(app, router) {
   // STATIC Routes
   require('../lib/routes/static')(app);
   app.set('views', './dist/html');

@@ -29,8 +29,7 @@
              window.user = <%- JSON.stringify(data.user) %>;
              if(Object.keys(user).length !== 0) {
                window.game = <%- JSON.stringify(data.game) %>;
-               window.players = <%- JSON.stringify(data.players) %>;
-               var beatsMusicUser = user.provider.beatsmusic;
+               var beatsMusicUser = window.user.provider.beatsmusic;
                localStorage.setItem('clientId', <%- JSON.stringify(data.clientId) %>);
                localStorage.setItem('accessToken', beatsMusicUser.access_token);
                localStorage.setItem('userId', beatsMusicUser.id);
