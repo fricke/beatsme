@@ -18,7 +18,9 @@
     "core-drawer-panel": "Polymer/core-drawer-panel#~0.3.4",
     "core-animated-pages": "Polymer/core-animated-pages#~0.3.4",
     "core-style": "Polymer/core-style#~0.3.4",
-    "core-signals": "Polymer/core-signals#~0.3.4"
+    "core-signals": "Polymer/core-signals#~0.3.4",
+    "paper-fab": "Polymer/paper-fab#~0.3.4",
+    "core-icons": "Polymer/core-icons#~0.3.4"
   },
   "devDependencies": {}
 }

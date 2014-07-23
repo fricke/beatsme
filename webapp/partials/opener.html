@@ -1,7 +1,7 @@
-<a class="opener" ng-click="handleOpenerClick()" href="{{ href }}">
+<a class="opener" href="{{ href }}" >
   <div class="beatsmusic-img-container">
-    <div class="beatsmusic-img" style="background-image: url('{{ userImg }}')">
+    <div class="beatsmusic-img {{ extraClass }}" style="background-image: url('{{ userImg }}')">
     </div>
   </div>
-  <h2>Play</h2>
+  <h2>{{ action }}</h2>
 </a>

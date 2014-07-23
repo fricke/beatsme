@@ -7,7 +7,9 @@ var passport = require('passport');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var config = require('../lib/services/config');
+var gameService = require('../lib/services/game');
 var responder = require('../lib/responder');
+var Q = require('Q');
 
 module.exports = function(app, router, mongoose) {
   // STATIC Routes
@@ -34,15 +36,28 @@ module.exports = function(app, router, mongoose) {
 
   app.get('/', function(req, res){
     var apiConfig = config.get('beatsmusic:apiConfig');
-    responder(res, {
-      template: 'index',
-      data: {
-        game: req.session.game || {},
-        user: req.user || {},
-        players: req.session.players || [],
-        clientId: apiConfig.clientID
-      }
-    });
+    var user = req.user;
+    var userId = user || user.id;
+
+    Q.fcall(function(){
+      if(!userId) return null;
+      return gameService.getMostRecentGame(userId);
+    })
+      .then(function(game){
+        responder(res, {
+          template: 'index',
+          data: {
+            game: game,
+            user: user || {},
+            clientId: apiConfig.clientID
+          }
+        });
+      })
+      .fail(function(err){
+        responder(res, {
+          error: err
+        })
+      });
   });
 
   app.get('/play', function(req, res){

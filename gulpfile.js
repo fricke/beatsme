@@ -26,6 +26,11 @@ gulp.task('styles', function() {
     ])
     .pipe(plugins.concat(appCssFileName))
     .pipe(gulp.dest(dest + '/css'));
+
+  gulp.src([
+      'bower_components/bootstrap/dist/css/bootstrap.css.map'
+    ])
+    .pipe(gulp.dest(dest + '/css'));
 });
 
 // Javascript concat, setting up browserify.

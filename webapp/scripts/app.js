@@ -14,7 +14,11 @@ var app = angular.module('beatsme', ['ngRoute'])
       .when('/play', {
         templateUrl: 'partials/play.html',
         controller: 'PlayCtrl'
-      });
+      })
+      .when('/play/:id', {
+        templateUrl: 'partials/play.html',
+        controller: 'PlayCtrl'
+      })
 
     //$locationProvider.html5Mode(true);
   }]
@@ -22,24 +26,9 @@ var app = angular.module('beatsme', ['ngRoute'])
 
 app.run(['$rootScope', '$window', 'sessionService',
   function ($rootScope, $window, sessionService) {
-    $rootScope.session = sessionService;
-    $window.app = {
-      authState: function(state, user) {
-        $rootScope.$apply(function() {
-          switch (state) {
-            case 'success':
-                sessionService.authSuccess(user);
-                break;
-            case 'failure':
-                sessionService.authFailed();
-                break;
-          }
-        });
-      }
-    };
-
-    if ($window.user !== null) {
+    if ($window.user && Object.keys($window.user).length) {
       sessionService.authSuccess($window.user, $window.game, $window.players, $window.clientId);
+      $rootScope.isLoggedIn = sessionService.isLoggedIn;
     }
   }
 ]);

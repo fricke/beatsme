@@ -17,25 +17,27 @@
         <link rel="import" href="../../bower_components/beatsme-player/beatsme-player.html">
 
           <div class="top">
-            <img id="logo" src="../images/beatsmusic_logo.png" width="75" height="75"/>
+            <a href="/">
+              <img ng-show="{{ isLoggedIn }}" id="logo" src="../images/beatsme_logo.png" />
+            </a>
           </div>
 
-          <div ng-view></div>
+          <div ng-view id="main-container"></div>
 
         <!-- build:js -->
         <!-- endbuild -->
         <script type="text/javascript">
-           angular.element(document).ready(function() {
-             window.user = <%- JSON.stringify(data.user) %>;
-             if(Object.keys(user).length !== 0) {
-               window.game = <%- JSON.stringify(data.game) %>;
-               var beatsMusicUser = window.user.provider.beatsmusic;
-               localStorage.setItem('clientId', <%- JSON.stringify(data.clientId) %>);
-               localStorage.setItem('accessToken', beatsMusicUser.access_token);
-               localStorage.setItem('userId', beatsMusicUser.id);
-             }
-             angular.bootstrap(document, ['beatsme']);
-           });
+          (function(){
+            window.user = <%- JSON.stringify(data.user) %>;
+            if(Object.keys(user).length !== 0) {
+              window.game = <%- JSON.stringify(data.game) %>;
+              var beatsMusicUser = window.user.provider.beatsmusic;
+              localStorage.setItem('clientId', <%- JSON.stringify(data.clientId) %>);
+              localStorage.setItem('accessToken', beatsMusicUser.access_token);
+              localStorage.setItem('userId', beatsMusicUser.id);
+            }
+          })();
+
     		</script>
       </body>
 </html>

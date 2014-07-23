@@ -1,6 +1,5 @@
-//GameCtrl
+//PlayCtrl
 
-module.exports = ['$scope', '$window', function($scope, $window) {
-  debugger;
-  $scope.message = "hello";
+module.exports = ['$scope', '$window', '$routeParams', function($scope, $window, $routeParams) {
+  $scope.gameId = $routeParams.id;
 }];
