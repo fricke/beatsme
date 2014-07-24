@@ -1,10 +1,10 @@
 {
   "webapp": {
-    "port": 8000,
+    "port": 8080,
     "domain": "www.beatsme.com"
   },
   "api": {
-    "port": 8001,
+    "port": 8081,
     "domain": "api.beatsme.com"
   },
   "session": {

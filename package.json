@@ -7,7 +7,7 @@
     "debugBrk": "gulp develop --debug-brk",
     "test": "mocha -b -R spec ./test/session.js"
   },
-  "main": "app.js",
+  "main": "start.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/fricke/beatsme/beatsme.git"
