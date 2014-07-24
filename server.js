@@ -1,3 +1,7 @@
+// server.js
+
+// main server setup, w/ toggle between oauth and session based end points.
+
 require('./lib/logging');
 
 var express = require('express');

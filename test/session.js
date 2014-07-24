@@ -12,12 +12,6 @@ var mongoUrl = require('../lib/services/config').getMongoUrl();
       });
     });
 
-    after(function(done){
-      mongoose.disconnect(function(){
-        done();
-      })
-    });
-
     describe('webapp', function(){
       testGames(mongoose, false, true, 'webapp');
     });

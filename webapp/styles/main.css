@@ -38,7 +38,7 @@ body {
 
 .top #logo {
   position: absolute;
-  top: 80px;
+  top: 10%;
   left: 45%;
 }
 
@@ -60,7 +60,6 @@ a.opener {
 
 a.opener > * {
   display: block;
-  float:left;
 }
 
 a.opener h2 {
@@ -95,6 +94,7 @@ a.opener h2 {
   -o-background-size: cover;
   background-size: cover;
 }
+
 
 #main-container {
   position:relative;

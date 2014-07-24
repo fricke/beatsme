@@ -39,14 +39,14 @@ module.exports = function(mongoose, isOauth, isSession, whatClient) {
 
     describe('/oauth/beatsme/callback', function() {
       it('will log you in', function(done) {
-        
+        done();
       });
     });
 
     describe('POST /games', function(){
       it('return unauthorized for non-user');
       it('create new game for user', function(done){
-
+        done();
       });
     });
 

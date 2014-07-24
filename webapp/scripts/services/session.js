@@ -1,3 +1,6 @@
+// session.js
+// Holds angular session data.  Sets up the user and game most importantly. 
+
 var angular = require('angular');
 
 angular.module('beatsme').factory('sessionService', ['$rootScope', '$window', '$http',

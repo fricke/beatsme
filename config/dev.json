@@ -1,19 +1,16 @@
 {
   "webapp": {
-    "port": 8000,
-    "domain": "www.beatsme.com"
+    "domain": "beatsme.herokuapp.com"
   },
   "api": {
-    "port": 8001,
-    "domain": "api.beatsme.com"
+    "domain": "dev.api.beatsme.com"
   },
   "session": {
     "secret": "murakami"
   },
   "mongodb": {
     "host": {
-        "url": "localhost",
-        "port": "27017"
+        "url": "heroku_app27708830"
     },
     "database": "beatsme"
   },
@@ -22,9 +19,9 @@
   },
   "beatsmusic": {
     "apiConfig": {
-      "clientID": "256f9qus6jcb43b3crenap9a",
-      "clientSecret": "BZwTRqdfj7rwKnzNm2QsM4kB",
-      "callbackURL": "http://www.beatsme.com:8000/auth/beatsmusic/callback"
+      "clientID": "fd2nhs3rsw3fcbg3k3m3mshw",
+      "clientSecret": "NmMx6TfYDEgSnf7F4szGmjcg",
+      "callbackURL": "http://beatsme.herokuapp.com/auth/beatsmusic/callback"
     },
     "urls": {
       "base": "https://partner.api.beatsmusic.com/v1/api",

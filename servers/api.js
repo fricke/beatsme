@@ -1,3 +1,7 @@
+// api.js
+
+// Takes care of the oauth availability for the beatsme api
+
 var passport = require('passport');
 
 module.exports = function(app) {

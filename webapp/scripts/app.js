@@ -3,6 +3,7 @@ var angular = require('angular');
 var PlayCtrl = require('./controllers/play');
 var OpenerCtrl = require('./controllers/opener');
 
+// Basic 3 routes for know on the angular side
 var app = angular.module('beatsme', ['ngRoute'])
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 

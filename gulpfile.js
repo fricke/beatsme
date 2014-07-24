@@ -11,12 +11,10 @@ var appJsFileName = 'app-' + version + '.js';
 
 var dest = 'dist';
 
-
 var debugOpt = util.env['debug'] ? '--debug' : false;
 if(!debugOpt) {
   debugOpt = util.env['debug-brk'] ? '--debug-brk' : false;
 }
-
 
 // CSS concat, auto-prefix and minify
 gulp.task('styles', function() {
@@ -62,16 +60,9 @@ gulp.task('scripts', function () {
               path: 'bower_components/bootstrap/dist/js/bootstrap.js',
               exports: 'bootstrap'
             },
-            platform: {
-              path: 'bower_components/platform/platform.js',
-              exports: 'Platform'
-            },
             polymer: {
               path: 'bower_components/polymer/polymer.js',
-              exports: 'Polymer',
-              depends: {
-                platform: 'Platform'
-              }
+              exports: 'Polymer'
             }
           }
         }))
@@ -81,6 +72,7 @@ gulp.task('scripts', function () {
 });
 
 
+// Replaces out js/css callouts w/ htmlReplace lib
 gulp.task('html', function() {
   var htmlSrc = 'webapp/*.html';
   var viewSrc = ['webapp/partials/*.html'];
@@ -93,11 +85,8 @@ gulp.task('html', function() {
     }))
     .pipe(gulp.dest(dest + '/html'));
 
-
-  gulp.src(viewSrc)
-    .pipe(gulp.dest(dest + '/html/partials'));
-
 });
+
 
 gulp.task('images', function () {
   gulp.src('webapp/images/**/*')

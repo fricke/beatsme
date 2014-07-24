@@ -1,3 +1,8 @@
+/*
+  webapp.js
+  The hook in for the webapp endpoints
+*/
+
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var favicon = require('favicon');
@@ -28,17 +33,18 @@ module.exports = function(app, router, mongoose) {
   app.use(session({
     secret: config.get('session:secret'),
     store: new MongoStore({
-      url: config.getMongoUrl()
+      url: config.getMongoUrl(),
+      auto_reconnect: true
     })
   }));
   app.use(passport.initialize());
   app.use(passport.session());
 
+  // main entry of single page webapp
   app.get('/', function(req, res){
     var apiConfig = config.get('beatsmusic:apiConfig');
     var user = req.user;
-    var userId = user || user.id;
-
+    var userId = user ? user._id : null;
     Q.fcall(function(){
       if(!userId) return null;
       return gameService.getMostRecentGame(userId);
@@ -59,6 +65,7 @@ module.exports = function(app, router, mongoose) {
         })
       });
   });
+
 
   app.get('/play', function(req, res){
     res.json({});
