@@ -49,7 +49,7 @@ var start = function(mongoose) {
   require('./lib/routes/auth')(app);
 
   // REST Routes
-  require('./lib/routes/data')(router);
+  require('./lib/routes/index')(router);
 
   // ERROR
   app.get('*', function(req, res, next) {
