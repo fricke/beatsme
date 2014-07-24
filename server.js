@@ -24,7 +24,7 @@ var start = function(mongoose) {
   var useApi = config.get('oauth');
 
 
-  app.set('port', 5000);
+  app.set('port', process.env.BEATSME_PORT || port);
   app.set('domain', process.env.BEATSME_DOMAIN || domain);
 
   app.use(require('winston-request-logger').create(logger, {
