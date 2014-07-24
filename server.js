@@ -21,7 +21,6 @@ var start = function(mongoose) {
   var app = express();
   var router = express.Router();
 
-
   var useApi = config.get('oauth');
 
 
@@ -32,6 +31,8 @@ var start = function(mongoose) {
       'responseTime': ':responseTime ms',
       'url': ':url[path]'
   }));
+
+  console.log('port', app.get('port'))
 
   require('./servers/webapp')(app, router, mongoose);
 
@@ -68,7 +69,7 @@ var start = function(mongoose) {
     }));
 
   var server = app.listen(port, domain, function () {
-    console.log('server listening at: %s on port: %s ', app.get('domain'), app.get('port'));
+    console.log('server listening at: %s on port: %s ', port, domain);
   });
   return server;
 }
