@@ -11,9 +11,10 @@
   },
   "mongodb": {
     "host": {
-        "url": "heroku_app27708830"
+        "url": "ds053459.mongolab.com",
+        "port": 53459
     },
-    "database": "beatsme"
+    "database": "heroku_app27708830"
   },
   "security": {
         "tokenLife" : 3600
