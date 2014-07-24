@@ -5,7 +5,6 @@
 
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var favicon = require('favicon');
 var ejs = require('ejs');
 var methodOverride = require('method-override');
 var passport = require('passport');
@@ -23,7 +22,6 @@ module.exports = function(app, router, mongoose) {
   app.set('view engine', 'html');
   app.engine('html', ejs.renderFile);
 
-  //app.use(favicon('dist/favicon.ico'));
   app.use(bodyParser.urlencoded({
     extended: true
   }));

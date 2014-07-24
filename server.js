@@ -47,6 +47,7 @@ var start = function(mongoose) {
 
   app.use('/', router);
 
+
   require('./lib/routes/auth')(app);
 
   // REST Routes

@@ -97,8 +97,6 @@ gulp.task('images', function () {
     })))
     .pipe(gulp.dest(dest + '/images'));
 
-  gulp.src('webapp/favicon.ico')
-    .pipe(gulp.dest(dest));
 
 });
 
