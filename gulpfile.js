@@ -133,4 +133,11 @@ gulp.task('develop', function () {
     .on('restart', function () {
       console.log('restarted!')
     })
-})
+});
+
+console.log(plugins.nodemon);
+
+gulp.task('heroku:dev', function() {
+
+  gulp.start('default');
+});

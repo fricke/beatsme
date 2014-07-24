@@ -38,8 +38,8 @@ body {
 
 .top #logo {
   position: absolute;
-  top: 10%;
-  left: 45%;
+  top: 10px;
+  left: 10px;
 }
 
 #bam_container {

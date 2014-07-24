@@ -4,6 +4,8 @@
 
 require('./lib/logging');
 
+var isSession = false;
+
 var express = require('express');
 var http = require('http');
 var winston = require('winston');
@@ -12,22 +14,13 @@ var logger = new (winston.Logger)({ transports: [ new (winston.transports.Consol
 var config = require('./lib/services/config');
 var responder = require('./lib/responder');
 
-var start = function(mongoose, isOauth, isSession) {
-  //defaults to isSession
-  if(!isOauth && !isSession) {
-    isSession = true;
-  }
+var start = function(mongoose) {
+
+  var domain = config.get('webapp:domain');
+  var port = config.get('webapp:port');
   var app = express();
   var router = express.Router();
-  var domain, port;
 
-  if(isSession) {
-    domain = config.get('webapp:domain');
-    port = config.get('webapp:port');
-  } else {
-    domain = config.get('api:domain');
-    port = config.get('api:port');
-  }
 
   var useApi = config.get('oauth');
 
@@ -40,12 +33,15 @@ var start = function(mongoose, isOauth, isSession) {
       'url': ':url[path]'
   }));
 
+  require('./servers/webapp')(app, router, mongoose);
 
-  if(isSession) {
-    require('./servers/webapp')(app, router, mongoose);
-  } else {
-    require('./servers/api')(app);
-  }
+
+  // TODO: session/oauth
+  // if(isSession) {
+  //   require('./servers/webapp')(app, router, mongoose);
+  // } else {
+  //   require('./servers/api')(app);
+  // }
 
 
   app.use('/', router);
@@ -55,6 +51,7 @@ var start = function(mongoose, isOauth, isSession) {
   // REST Routes
   require('./lib/routes/data')(router);
 
+  // ERROR
   app.get('*', function(req, res, next) {
     var err = new Error();
     err.statusCode = 404;
@@ -69,12 +66,7 @@ var start = function(mongoose, isOauth, isSession) {
         })
       ]
     }));
-  app.use(function(err, req, res, next) {
-    responder(res, {
-      template: isSession ? err.statusCode : null,
-      error: err
-    });
-  });
+
 
   var server = app.listen(app.get('port'), app.get('domain'), function () {
     console.log('Express server listening at: %s on port: %s ', app.get('domain'), app.get('port'));
