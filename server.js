@@ -69,7 +69,7 @@ var start = function(mongoose) {
     }));
 
   var server = app.listen(port, domain, function () {
-    console.log('server listening at: %s on port: %s ', port, domain);
+    console.log('server listening at: %s on port: %s ', port, domain, arguments);
   });
   return server;
 }
