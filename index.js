@@ -7,7 +7,7 @@ var server = require('./server');
 var mongoose = require('mongoose');
 var mongoUrl = require('./lib/services/config').getMongoUrl();
 
-console.log('WE ARE WAKING UP');
+console.log('WE ARE WAKING UP, mongoUrl: %s', mongoUrl);
 
 mongoose.connect(mongoUrl, function(e) {
   server(mongoose, true, false);
