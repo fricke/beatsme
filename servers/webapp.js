@@ -14,7 +14,7 @@ var MongoStore = require('connect-mongo')(session);
 var config = require('../lib/services/config');
 var gameService = require('../lib/services/game');
 var responder = require('../lib/responder');
-var Q = require('Q');
+var Q = require('q');
 
 module.exports = function(app, router, mongoose) {
   // STATIC Routes
