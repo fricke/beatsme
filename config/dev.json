@@ -1,5 +1,6 @@
 {
   "webapp": {
+    "port": 5000,
     "domain": "beatsme.herokuapp.com"
   },
   "api": {
