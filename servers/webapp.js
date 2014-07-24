@@ -27,7 +27,7 @@ module.exports = function(app, router, mongoose) {
   app.use(bodyParser.urlencoded({
     extended: true
   }));
-  
+
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
@@ -63,7 +63,7 @@ module.exports = function(app, router, mongoose) {
       .fail(function(err){
         responder(res, {
           error: err
-        })
+        });
       });
   });
 
