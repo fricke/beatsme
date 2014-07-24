@@ -17,7 +17,7 @@ var responder = require('./lib/responder');
 var start = function(mongoose) {
 
   var domain = config.get('webapp:domain');
-  var port = config.get('webapp:port');
+  var port = process.env.PORT || config.get('webapp:port');
   var app = express();
   var router = express.Router();
 
