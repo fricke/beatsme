@@ -68,9 +68,9 @@ var start = function(mongoose) {
     }));
 
 
-  console.log('starting server listening at: %s on: %s ', domain, port);
+  console.log('starting server listening at port %s ', port);
   var server = app.listen(port, function () {
-    console.log('server listening at: %s on: %s ', domain, port);
+    console.log('server listening at port %s ', port);
   });
   server.on('error', function(){
     //listening

@@ -80,8 +80,8 @@ gulp.task('html', function() {
 
   gulp.src(htmlSrc)
     .pipe(plugins.htmlReplace({
-      css: '<link rel="stylesheet" href="../css/' + appCssFileName + '"/>',
-      js: '<script type="text/javascript" src="../js/' + appJsFileName + '"></script>'
+      css: '<link rel="stylesheet" href="/css/' + appCssFileName + '"/>',
+      js: '<script type="text/javascript" src="/js/' + appJsFileName + '"></script>'
     }))
     .pipe(gulp.dest(dest + '/html'));
 
