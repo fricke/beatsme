@@ -20,7 +20,10 @@
     "core-style": "Polymer/core-style#~0.3.4",
     "core-signals": "Polymer/core-signals#~0.3.4",
     "paper-fab": "Polymer/paper-fab#~0.3.4",
-    "core-icons": "Polymer/core-icons#~0.3.4"
+    "core-icons": "Polymer/core-icons#~0.3.4",
+    "beatsme-game": "~0.0.1",
+    "beatsme-player": "~0.0.3",
+    "beatsme-game-card": "~0.0.1"
   },
   "devDependencies": {}
 }
