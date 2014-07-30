@@ -1,0 +1,14 @@
+{
+  "name": "beatsme-game-card",
+  "homepage": "https://github.com/fricke/beatsme-game-card",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "88052d651ce6f6e70428980c2d13589a774ad871"
+  },
+  "_source": "git://github.com/fricke/beatsme-game-card.git",
+  "_target": "~0.0.1",
+  "_originalSource": "beatsme-game-card"
+}

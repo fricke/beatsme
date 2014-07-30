@@ -1,0 +1,13 @@
+.player {
+  height:100%;
+  width:100%;
+}
+
+.player paper-progress {
+  width: 100%;
+  height:100%;
+}
+
+  paper-progress.red::shadow #activeProgress {
+    background-color: #d23f31;
+  }

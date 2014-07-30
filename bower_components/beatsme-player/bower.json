@@ -1,0 +1,26 @@
+{
+  "name": "beatsme-player",
+  "version": "0.0.3",
+  "main": "player.js",
+  "homepage": "https://github.com/fricke",
+  "authors": [
+    "Chris Fricke <chris.fricke@gmail.com>"
+  ],
+  "description": "A beatsme player",
+  "keywords": [
+    "Audio",
+    "Player",
+    "Beatsme"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer",
+    "platform": "Polymer/platform"
+  }
+}

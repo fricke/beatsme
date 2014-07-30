@@ -1,0 +1,27 @@
+<link rel="import" href="../core-ajax/core-ajax.html">
+
+<polymer-element
+  name="beatsme-game-card"
+  attributes="trackId clientId">
+  <template>
+    <core-ajax
+      auto url="/music/tracks/{{ trackId }}"
+      handleAs="json"
+      on-core-response="{{ handleDataResponse }}">
+    </core-ajax>
+
+    <div class="card" hero-id="{{track.artist_display_name}}-{{ album.display }}" hero?="{{  }}">
+      <div
+        class="card-top"
+        style="background:url('{{ album.cover }}/default?client_id={{ clientId }}');"></div>
+      <div class="card-bottom">
+        <div class="card-info card-album-title">{{ album.display }}</div>
+        <div class="card-info card-artist">{{ track.artist_display_name }}</div>
+        <div class="card-info card-track-title">{{ track.title }}</div>
+      </div>
+    </div>
+  </template>
+  <script src="./beatsme-game-card.js">
+  </script>
+
+</polymer-element>
