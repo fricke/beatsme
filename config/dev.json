@@ -11,10 +11,12 @@
   },
   "mongodb": {
     "host": {
-        "url": "localhost",
-        "port": "27017"
+        "url": "ds053459.mongolab.com",
+        "port": 53459
     },
-    "database": "beatsme"
+    "username": "beatsme",
+    "password": "fricke",
+    "database": "heroku_app27708830"
   },
   "security": {
         "tokenLife" : 3600
