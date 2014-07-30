@@ -10,13 +10,15 @@
   "session": {
     "secret": "murakami"
   },
-  "mongodb": {
-    "host": {
-        "url": "localhost",
-        "port": 27017
-    },
-    "database": "beatsme"
+"mongodb": {
+  "host": {
+      "url": "ds053459.mongolab.com",
+      "port": 53459
   },
+  "username": "beatsme",
+  "password": "fricke",
+  "database": "heroku_app27708830"
+},
   "security": {
         "tokenLife" : 3600
   },
