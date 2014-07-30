@@ -16,7 +16,7 @@ var responder = require('./lib/responder');
 
 var start = function(mongoose) {
 
-  var domain = config.get('webapp:domain');
+  var domain = process.env.BEATSME_DOMAIN || config.get('webapp:domain');
   var port = process.env.PORT || process.env.BEATSME_PORT || config.get('webapp:port');
   var app = express();
   var router = express.Router();
@@ -25,14 +25,12 @@ var start = function(mongoose) {
 
 
   app.set('port', port);
-  app.set('domain', process.env.BEATSME_DOMAIN || domain);
+  app.set('domain', domain);
 
   app.use(require('winston-request-logger').create(logger, {
       'responseTime': ':responseTime ms',
       'url': ':url[path]'
   }));
-
-  console.log('port', app.get('port'))
 
   require('./servers/webapp')(app, router, mongoose);
 
@@ -70,13 +68,13 @@ var start = function(mongoose) {
     }));
 
 
-  console.log('starting server listening at: %s on port: %s ', port, domain);
-  var server = app.listen(port, domain, function () {
-    console.log('server listening at: %s on port: %s ', port, domain);
+  console.log('starting server listening at: %s on: %s ', domain, port);
+  var server = app.listen(port, function () {
+    console.log('server listening at: %s on: %s ', domain, port);
   });
   server.on('error', function(){
     //listening
-    console.log(arguments);
+    console.log("ERROR starting server", arguments);
   });
   return server;
 }
