@@ -122,9 +122,9 @@ gulp.task('develop', function () {
   gulp.start('default');
   gulp.start('watch');
   plugins.nodemon({
-      script: 'index.js',
+      script: 'start.js',
       ext: 'js',
-      watch: ['index.js', 'server.js', 'servers/', 'lib/', 'config/'],
+      watch: ['start.js', 'server.js', 'servers/', 'lib/', 'config/'],
       delay: 100,
       nodeArgs: debugOpt ? [debugOpt] : null
     })
