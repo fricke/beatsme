@@ -17,14 +17,14 @@ var responder = require('./lib/responder');
 var start = function(mongoose) {
 
   var domain = config.get('webapp:domain');
-  var port = process.env.PORT || config.get('webapp:port');
+  var port = process.env.PORT || process.env.BEATSME_PORT || config.get('webapp:port');
   var app = express();
   var router = express.Router();
 
   var useApi = config.get('oauth');
 
 
-  app.set('port', process.env.PORT || process.env.BEATSME_PORT || port);
+  app.set('port', port);
   app.set('domain', process.env.BEATSME_DOMAIN || domain);
 
   app.use(require('winston-request-logger').create(logger, {
@@ -69,6 +69,8 @@ var start = function(mongoose) {
       ]
     }));
 
+
+  console.log('starting server listening at: %s on port: %s ', port, domain);
   var server = app.listen(port, domain, function () {
     console.log('server listening at: %s on port: %s ', port, domain);
   });
